@@ -1,4 +1,4 @@
 # UNRELEASED
 
-  * Specs
-  * Core functionality
+  * Implemented specs and performance test suite.
+  * Implemented core functionality
