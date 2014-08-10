@@ -1,3 +1,4 @@
 # UNRELEASED
 
-  * initial
+  * Specs
+  * Core functionality
