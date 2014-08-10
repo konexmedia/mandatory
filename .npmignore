@@ -3,3 +3,5 @@ specs
 .travis.yml
 .zedstate
 gulpfile.js
+index.spec.js
+index.performance.js
