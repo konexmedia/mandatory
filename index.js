@@ -17,19 +17,26 @@ var assert = require('assert');
 var util = require('util');
 
 module.exports = function (candidate) {
-    var realType = typeof candidate;
+    var type = typeof candidate;
+
+    type = ('object' === type && util.isArray(candidate)) ? 'array' : type;
 
     return {
-        is: function is (type, message) {
-            type = type.toLowerCase();
-            message = message || 'Expected ' + type + ' but received ' + realType;
+        is: function is (expected, message) {
+            expected = expected.toLowerCase();
+            message = message || 'Expected ' + expected + ' but received ' + type;
 
-            if ('object' === type) {
-                assert.equal(realType === 'object' && !util.isArray(candidate), true, message);
-            } else if ('array' === type) {
-                assert.equal(util.isArray(candidate), true, message);
-            } else {
-                assert.equal(realType, type, message);
+            switch (expected) {
+                case 'object':
+                    assert.equal(type === 'object' && !util.isArray(candidate), true, message);
+                    break;
+                
+                case 'array':
+                    assert.equal(util.isArray(candidate), true, message);
+                    break;
+                
+                default:
+                    assert.equal(type, expected, message);
             }
         }
     };
