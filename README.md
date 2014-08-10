@@ -6,7 +6,7 @@ A tiny error-throwing module for checking types.
 
 In a language like JavaScript where there is no compilation step, you have to be very consequent when it comes to make sure that certain parameter values are of a specific type or are available at all. If it does not, then it should be considered as a programmer error and must be thrown immediately.
 
-Node.js ships with the awesome [assert](nodejs.org/api/assert.html) module which is very handy in this use case. Anyways, when you use it intensively you will discover that the handling of edge cases has to be done manually (like checking if a value is a _real_ object (JS treats an array also as an object)). With `assert` you have to do something like
+Node.js ships with the awesome [assert](nodejs.org/api/assert.html) module which is very handy in this use case. Anyways, when you use it intensively you will discover that the handling of edge cases has to be done manually (like checking if a value is a _real_ object (JS does treat arrays and objects equally as `object`)). With `assert` you have to do something like
 
 ```javascript
     assert.equal('object' === typeof param && !util.isArray(param), true, '"param" should be a real object.');
