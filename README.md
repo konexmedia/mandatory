@@ -15,7 +15,7 @@ Node.js ships with the awesome [assert](nodejs.org/api/assert.html) module which
 Using _raw_ asserts will mess up your code quickly. This is where `mandatory` enters the stage:
 
 ```javascript
-    mandatory(param).is('array');
+    mandatory(param).is('object');
 ```
 
 It uses the `assert` module internally and wraps it into a minimalistic API. Like `assert`, it throws error objects which is cool, because passing wrong parameters is a programmer error which should _fail fast_.
