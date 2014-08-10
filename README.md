@@ -48,7 +48,7 @@ exports.doSomething = function doSomething (id, options, foo, callback) {
 #### mandatory(value).is(expectedType [, message]);
 
  * `expectedType` string, number, object, array, function
- * `message` (optional) A custom error message. Otherwise _mandatory_ will respond with a default error message: 'Expected "object" received "array"'
+ * `message` (optional) A custom error message. Otherwise _mandatory_ will respond with a default error message: 'Expected "object", but received "array"'
 
 ## Performance
 
