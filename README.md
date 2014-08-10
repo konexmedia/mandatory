@@ -1,4 +1,4 @@
-# mandatory
+# mandatory [![Build Status](https://travis-ci.org/konexmedia/mandatory.svg?branch=master)](https://travis-ci.org/konexmedia/mandatory)
 
 A tiny error-throwing module for checking types.
 
