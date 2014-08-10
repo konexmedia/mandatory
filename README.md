@@ -1,5 +1,65 @@
 # mandatory
 
+A tiny error-throwing module for checking types.
+
+## Motivation
+
+In a language like JavaScript where there is no compilation step, you have to be very consequent when it comes to make sure that certain parameter values are of a specific type or are available at all. If it does not, then it should be considered as a programmer error and must be thrown immediately.
+
+Node.js ships with the awesome [assert](nodejs.org/api/assert.html) module which is very handy in this use case. Anyways, when you use it intensively you will discover that the handling of edge cases has to be done manually (like checking if a value is a _real_ object (JS treats an array also as an object)). With `assert` you have to do something like
+
+```javascript
+    assert.equal('object' === typeof param && !util.isArray(param), true, '"param" should be a real object.');
+```
+
+Using _raw_ asserts will mess up your code quickly. This is where `mandatory` enters the stage:
+
+```javascript
+    mandatory(param).is('array');
+```
+
+It uses the `assert` module internally and wraps it into a minimalistic API. Like `assert`, it throws error objects which is cool, because passing wrong parameters is a programmer error which should _fail fast_.
+
+## Installation
+
+```bash
+npm install --save mandatory
+```
+
+## Usage
+
+```javascript
+'use strict'
+
+var mandatory = require('mandatory');
+
+exports.doSomething = function doSomething (id, options, foo, callback) {
+    mandatory(id).is('number');
+    mandatory(options).is('object');
+    mandatory(foo).is('array', '"foo" should be a real array');
+    mandatory(callback).is('function');
+    
+    ...
+};
+```
+
+### API
+
+#### mandatory(value).is(expectedType [, message]);
+
+ * `expectedType` string, number, object, array, function
+ * `message` (optional) A custom error message. Otherwise _mandatory_ will respond with a default error message: 'Expected "object" received "array"'
+
+## Performance
+
+In a typed language with a compile phase you benefit from the execution of those checks in this phase. By checking it on every function execution it is crucial that those checks have to be fast. The `gulpfile` comes with a benchmark which tests `mandatory`. You can benchmark it by executing `gulp benchmark`. This is one result:
+
+```bash
+index.performance x 149,332 ops/sec ±6.96% (79 runs sampled)
+```
+
+This shows that the `assert` module is pretty fast.
+
 ## License
 
 The MIT License (MIT) Copyright (c) 2014 konexmedia

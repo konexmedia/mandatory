@@ -24,7 +24,7 @@ module.exports = function (candidate) {
     return {
         is: function is (expected, message) {
             expected = expected.toLowerCase();
-            message = message || 'Expected ' + expected + ' but received ' + type;
+            message = message || 'Expected "' + expected + '" but received "' + type + '".';
 
             switch (expected) {
                 case 'object':
