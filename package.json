@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/konexmedia/mandatory/issues"
   },
-  "homepage": "https://github.com/konexmedia/mandatory"
+  "homepage": "https://github.com/konexmedia/mandatory",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jasmine": "^0.3.0"
+  }
 }
