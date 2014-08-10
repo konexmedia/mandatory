@@ -52,7 +52,7 @@ exports.doSomething = function doSomething (id, options, foo, callback) {
 
 ## Performance
 
-In a typed language with a compile phase you benefit from the execution of those checks in this phase. By checking it on every function execution it is crucial that those checks have to be fast. The `gulpfile` comes with a benchmark which tests `mandatory`. You can benchmark it by executing `gulp benchmark`. This is one result:
+In a typed language with a compile phase you benefit from the execution of those checks in this phase. By checking it on every function execution it is crucial that those checks have to be fast. The `gulpfile` comes with a suite which tests `mandatory's` performance. You can initiate it by executing `gulp benchmark`. This is one result:
 
 ```bash
 index.performance x 149,332 ops/sec ±6.96% (79 runs sampled)
