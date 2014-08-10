@@ -14,6 +14,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var benchmark = require('gulp-bench');
 var jshint = require('gulp-jshint');
 var jasmine = require('gulp-jasmine');
 
@@ -30,6 +31,11 @@ gulp.task('test', function () {
         .pipe(jasmine());
 });
 
+gulp.task('benchmark', function () {
+    return gulp.src('./index.performance.js', {read: false})
+        .pipe(benchmark());
+});
+
 gulp.task('default', function () {
-    return sequence('test', 'lint');
+    return sequence('test', 'lint', 'benchmark');
 });
