@@ -26,6 +26,8 @@
   "homepage": "https://github.com/konexmedia/mandatory",
   "devDependencies": {
     "gulp": "^3.8.7",
-    "gulp-jasmine": "^0.3.0"
+    "gulp-jasmine": "^0.3.0",
+    "gulp-jshint": "^1.8.4",
+    "run-sequence": "^0.3.6"
   }
 }
